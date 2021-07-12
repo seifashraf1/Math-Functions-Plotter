@@ -41,7 +41,7 @@ class MainWidget(QWidget):
 
         designer_file.close()
 
-        self.ui.plot.clicked.connect(self.plot_graph)
+        self.ui.plot.clicked.connect(self.take_input)
 
         self.setWindowTitle("Function Plotter")
 
@@ -50,23 +50,30 @@ class MainWidget(QWidget):
         self.setLayout(grid_layout)
 
 
-    def plot_graph(self):
+    def take_input(self):
+        func_input = self.ui.lineEdit.text()                        #taking the function as input through the lineEdit widget
+        func_input = func_input.replace("e^","exp")
+        func_input = func_input.replace("e**","exp")
+        
+
+        x_min = self.ui.lineEdit_2.text()
+        x_min = float(x_min)
+            
+        x_max = self.ui.lineEdit_3.text()
+        x_max = float(x_max)        
+        
+        self.plot_graph(func_input, x_min, x_max)
+
+
+
+    def plot_graph(self, func_input, x_min, x_max):
         try:
             y = []
             list = []
             x = var('x')
 
-    
-            func_input = self.ui.lineEdit.text()                        #taking the function as input through the lineEdit widget
-            func_input = func_input.replace("e^","exp")
-            func_input = func_input.replace("e**","exp")
             expr = sympify(func_input)                  #lib to transform any equation from string format to math format 
 
-            x_min = self.ui.lineEdit_2.text()
-            x_min = float(x_min)
-            
-            x_max = self.ui.lineEdit_3.text()
-            x_max = float(x_max)
 
             list = np.linspace(x_min,x_max , 100)        
 
@@ -88,6 +95,8 @@ class MainWidget(QWidget):
 
         except:
             self.error()                #handling any other kind of errors
+    
+        return y
 
     def nameError(self):
         QMessageBox.warning(self, "Name Error", "Please use variable x when entering the function")
