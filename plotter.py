@@ -96,7 +96,7 @@ class MainWidget(QWidget):
         QMessageBox.warning(self, "Syntax Error", "Multiplication has to have *  i.e. 5*x not 5x")
 
     def error(self):
-        QMessageBox.warning(self, "Error", "Please Enter a Valid Input. Avoid Syntax Errors like 5x instead of 5*x")
+        QMessageBox.warning(self, "Error", "Please Enter a Valid Input. Avoid Syntax Errors like 5x instead of 5*x, and x has to be like that (x) in exponential and logarithmic functions")
         
     
 
