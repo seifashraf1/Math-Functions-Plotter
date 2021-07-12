@@ -9,14 +9,7 @@ import matplotlib.pyplot as plt
 from sympy import var
 from sympy import sympify
 
-def nameError(self):
-    QMessageBox.warning(self, "Name Error", "Please use variable x when entering the function")
 
-def syntaxError(self):
-    QMessageBox.warning(self, "Syntax Error", "Multiplication has to have *  i.e. 5*x not 5x")
-
-def error(self):
-    QMessageBox.warning(self, "Error", "Please Enter a Valid Input")
 
 class pltWidget(QWidget):
     
@@ -96,7 +89,14 @@ class MainWidget(QWidget):
         except:
             self.error()                #handling any other kind of errors
 
+    def nameError(self):
+        QMessageBox.warning(self, "Name Error", "Please use variable x when entering the function")
 
+    def syntaxError(self):
+        QMessageBox.warning(self, "Syntax Error", "Multiplication has to have *  i.e. 5*x not 5x")
+
+    def error(self):
+        QMessageBox.warning(self, "Error", "Please Enter a Valid Input. Avoid Syntax Errors like 5x instead of 5*x")
         
     
 
