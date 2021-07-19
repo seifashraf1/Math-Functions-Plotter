@@ -3,15 +3,15 @@ A Python GUI program that plots arbitrary user-entered function.
 
 # Prerequisites
 
-pip install numpy
+`pip install numpy`
 
-pip install matplotlib
+`pip install matplotlib`
 
-pip install PySide2
+`pip install PySide2`
 
-pip install pytest
+`pip install pytest`
 
-pip install sympy
+`pip install sympy`
 
 # Functions Supported
 
